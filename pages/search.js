@@ -3,6 +3,8 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { format } from "date-fns";
 import InfoCard from "../components/InfoCard";
+import Mapbox from "../components/Mapbox";
+
 export default function Search({ searchResults }) {
   const router = useRouter();
   const { location, startDate, endDate, guestCount } = router.query;
@@ -12,7 +14,7 @@ export default function Search({ searchResults }) {
   return (
     <div>
       <Header placeholder={`${location} | ${range} | ${guestCount} guests`} />
-      <main className="flex">
+      <main className="flex flex-col xl:flex-row">
         {/* Stays */}
         <section className="flex-grow pt-14 px-6">
           <p className="text-xs">
@@ -61,6 +63,9 @@ export default function Search({ searchResults }) {
               }
             )}
           </div>
+        </section>
+        <section className="inline-flex  h-[600px] xl:h-screen xl:min-w-[600px] overflow-hidden">
+          <Mapbox searchResults={searchResults} />
         </section>
       </main>
       <Footer />
