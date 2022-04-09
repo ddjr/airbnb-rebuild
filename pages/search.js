@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { format } from "date-fns";
 import InfoCard from "../components/InfoCard";
 import Mapbox from "../components/Mapbox";
+//
 
 export default function Search({ searchResults }) {
   const router = useRouter();
